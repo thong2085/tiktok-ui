@@ -16,6 +16,7 @@
 .logo {
   display: flex;
 }
+
 .search {
   --search-border-radius: 92px;
   --search-height: 46px;
@@ -37,13 +38,16 @@
     background: rgba(22, 24, 35, 0.12);
   }
 }
+.search-form,
+.search-results {
+  width: 400px;
+}
 .search-form {
   display: flex;
   align-items: center;
   border: 1px solid transparent;
   background: rgba(22, 24, 35, 0.06);
-  width: 400px;
-  height: 40px;
+  height: var(--search-height);
   color: var(--black);
   padding-left: 16px;
   border-radius: var(--search-border-radius);
@@ -71,6 +75,14 @@
     background: rgba(22, 24, 35, 0.03);
     color: var(--black);
   }
+}
+.search-title {
+  font-weight: 600;
+  font-size: 14px;
+  height: 30px;
+  color: rgba(22, 24, 35, 0.5);
+  line-height: 20px;
+  padding: 5px 12px;
 }
 .clear-btn,
 .loading {
@@ -101,6 +113,4 @@
   &:active {
     background: rgba(22, 24, 35, 0.06);
   }
-}
-.actions {
 }
