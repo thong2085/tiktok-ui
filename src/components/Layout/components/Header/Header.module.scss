@@ -7,6 +7,7 @@
 }
 .inner {
   height: 100%;
+  padding: 0 var(--default-layout-horizontal-spacer);
   width: var(--default-layout-width);
   display: flex;
   align-items: center;
@@ -114,6 +115,12 @@
     background: rgba(22, 24, 35, 0.06);
   }
 }
+// Actions
+.actions {
+  display: flex;
+  align-items: center;
+}
+
 .more-btn {
   font-size: 2rem;
   margin-left: 16px;
@@ -121,4 +128,19 @@
   width: 30px;
   padding: 0 8px;
   cursor: pointer;
+}
+.action-btn {
+  font-size: 2.2rem;
+  color: #161823;
+  background: transparent;
+  padding: 4px 12px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 12px;
 }

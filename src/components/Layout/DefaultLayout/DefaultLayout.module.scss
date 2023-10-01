@@ -4,10 +4,10 @@
   align-items: center;
 }
 .container {
-  width: 1150px;
+  width: var(--default-layout-width);
+  padding: 0 var(--default-layout-horizontal-spacer);
   display: flex;
 }
 .content {
   flex: 1;
-  min-height: 1000px;
 }
