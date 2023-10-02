@@ -2,8 +2,8 @@ import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import images from "../../../../assets/images";
 import Button from "../../../Button";
+import Search from "../Search";
 
-import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpFromBracket,
@@ -13,19 +13,14 @@ import {
   faEllipsisVertical,
   faGear,
   faKeyboard,
-  faMagnifyingGlass,
   faSignOut,
-  faSpinner,
-  faXmarkCircle,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react";
-import HeadlessTippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
-import { Wrapper as PopperWrapper } from "../../../Popper";
-import AccountItem from "../../../AccountItem";
 import Menu from "../../../Popper/Menu";
 import { faMessage, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import Image from "../../../Image";
 
 const cx = classNames.bind(styles);
 
@@ -61,14 +56,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const [search, setSearch] = useState([]);
   const currenUser = true;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setSearch([]);
-    }, 0);
-  }, []);
 
   // Handle logic
   const handleMenuChange = (menuItem) => {
@@ -114,33 +102,8 @@ function Header() {
         <div className={cx("logo")}>
           <img src={images.logo} alt="logo" />
         </div>
-        <HeadlessTippy
-          interactive
-          visible={search.length > 0}
-          render={(attr) => (
-            <div className={cx("search-results")} tabIndex="-1" {...attr}>
-              <PopperWrapper>
-                <div className={cx("search-results-header")}>
-                  <h4 className={cx("search-title")}>Accounts</h4>
-                </div>
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx("search")}>
-            <form className={cx("search-form")} method="GET">
-              <input type="text" placeholder="Search" />
-              <button className={cx("clear-btn")}>
-                <FontAwesomeIcon icon={faXmarkCircle} />
-              </button>
-              <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
-              <button className={cx("search-btn")}>
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-              </button>
-            </form>
-          </div>
-        </HeadlessTippy>
+        {/* Search*/}
+        <Search />
 
         <div className={cx("actions")}>
           {currenUser ? (
@@ -170,10 +133,9 @@ function Header() {
             onChange={handleMenuChange}
           >
             {currenUser ? (
-              <img
+              <Image
                 className={cx("user-avatar")}
                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/761da5f5803174d10fc199e11dc3a2d6~c5_100x100.jpeg?x-expires=1696356000&x-signature=9ExbFeI%2FGBZQ5wt31JthhAJYX9k%3D"
-                alt=""
               />
             ) : (
               <button className={cx("more-btn")}>
